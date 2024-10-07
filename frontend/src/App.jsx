@@ -51,7 +51,7 @@ function App() {
 
   const [cartlength, setcartlength] = useState(0)
 
-  const url = "http://localhost:3000"
+  const url = "https://ecommerce-yourshop.onrender.com"
   const user = useSelector((state) => state.user.user)
 
   const cartdata = async () => {
