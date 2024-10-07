@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.table{
+    @apply bg-white
+}
+
+.table th{
+    @apply border font-medium
+}
+
+.table td{
+    @apply border text-center
+}
+
+.noScroll-bar::-webkit-scrollbar{
+    display: none;
+}
+
+.small{
+    font-size: 10px;
+}
+
+.t8{
+    font-size: 8px;
+}
+
+.bsm{
+    font-size: 6px;
+}
+
+.wa{
+    width: 86px;
+}
+
+.in{
+    filter: invert();
+}
+
+.t{
+    top : 40%;
+}
+
+.hi{
+    height: 32rem;
+}
+
+.we{
+    width: 70rem;
+}
+
+.ih{
+    width: 30rem;
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.page-item{
+    border: 1px solid black;
+    padding: 1rem;
+    font-size: 16px;
+}
+
+@media only screen and (max-width: 768px) {
+    .page-item{
+        padding: 10px;
+        font-size: 10px;
+    }
+}
+
+.pageItemActive{
+    background: orange;
+}
+
+.Mui-completed{
+    font-weight: 500;
+}
