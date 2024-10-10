@@ -98,7 +98,7 @@ export default function Cart() {
                           <button className='text-center px-4 bg-red-100 hover:bg-red-400 border border-red-600 rounded-md' onClick={() => incresValu(item?._id, item?.count)}>+</button>
                         </div>
                       </div>
-                      <div className='md:text-2xl text-xl absolute top-2 right-2' onClick={() => hendleDelete(item?._id)}>
+                      <div className='md:text-2xl text-xl absolute top-2 right-2 cursor-pointer' onClick={() => hendleDelete(item?._id)}>
                         <MdDelete />
                       </div>
                     </div>
