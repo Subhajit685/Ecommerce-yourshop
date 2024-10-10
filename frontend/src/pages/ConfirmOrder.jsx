@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import StoreContext from '../context/storeContext'
 import { useSelector } from 'react-redux'
 import { LuIndianRupee } from "react-icons/lu";
@@ -8,8 +8,10 @@ import CheckOutStep from '../components/CheckOutStep';
 function ConfirmOrder() {
     const { shippingInfo, total, url, userData } = useContext(StoreContext)
     const user = useSelector((state) => state.user.user)
+    const [loading, setloading] = useState(false)
 
     const heldleClick = async (amount) => {
+        setloading(true)
         const res = await fetch(`${url}/api/payment/order`, {
             method: "POST",
             credentials: "include",
@@ -20,6 +22,9 @@ function ConfirmOrder() {
         })
 
         const data = await res.json()
+        if(data.success){
+            setloading(false)
+        }
 
         const options = {
             key: data.key, // Enter the Key ID generated from the Dashboard
@@ -31,9 +36,9 @@ function ConfirmOrder() {
             order_id: data.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
             callback_url: `${url}/api/payment/paymentVerification`,
             prefill: {
-                "name": "Gaurav Kumar",
-                "email": "gaurav.kumar@example.com",
-                "contact": "9000090000"
+                name: user?.name,
+                email: user?.email,
+                contact: user?.ShippingInfo?.phoneNo
             },
             notes: {
                 address: "Razorpay Corporate Office"
@@ -137,7 +142,12 @@ function ConfirmOrder() {
                     </div>
 
                     <div className='w-full flex px-2 justify-end border-red-400'>
-                        <Link  className='w-60 py-2 rounded-sm bg-blue-600 text-white text-center' onClick={() => heldleClick(total + 40)}>Make Payment</Link>
+                        {
+                            loading ? (<button type="button" className="w-60 py-2 bg-blue-600 text-center text-white" disabled>
+                                Processing...
+                            </button>) : (<Link  className='w-60 py-2 rounded-sm bg-blue-600 text-white text-center' onClick={() => heldleClick(total + 40)}>Make Payment</Link>)
+                        }
+                        
                     </div>
                 </div>
             </div>
