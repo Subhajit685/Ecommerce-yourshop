@@ -52,6 +52,7 @@ function Navbar() {
 
     const enterKey = (e) =>{
         if(e.key === "Enter"){
+            setshow1(false)
             navigate(`/search/${search}`)
         }
     }
