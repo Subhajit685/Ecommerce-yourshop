@@ -50,14 +50,15 @@ function Navbar() {
         userData()
     }, [])
 
+    const enterKey = (e) =>{
+        if(e.key === "Enter"){
+            navigate(`/search/${search}`)
+        }
+    }
 
     useEffect(()=>{
-        document.addEventListener("keydown", (e)=>{
-            if(e.key === "Enter"){
-                navigate(`/search/${search}`)
-            }
-        })
-    },[])
+        document.addEventListener("keydown", enterKey)
+    },[enterKey])
 
     return (
         <header className='w-full h-16 shadow-md bg-white fixed top-0 z-50'>
