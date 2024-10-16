@@ -51,6 +51,14 @@ function Navbar() {
     }, [])
 
 
+    useEffect(()=>{
+        document.addEventListener("keydown", (e)=>{
+            if(e.key === "Enter"){
+                navigate(`/search/${search}`)
+            }
+        })
+    })
+
     return (
         <header className='w-full h-16 shadow-md bg-white fixed top-0 z-50'>
             <div className='container h-full flex items-center relative justify-between px-4 mx-auto'>
@@ -62,8 +70,8 @@ function Navbar() {
                 </div>
                 <div onClick={() => setopen(true)}>
                     <Link to={"/"} className='flex gap-4'>
-                        <img src="/Untitled.png" alt="" className='h-12' />
-                        <img src="/Screenshot 2024-09-19 092745.png" alt="" className='hidden md:block h-12' />
+                        <img src="/Untitled.png" alt="" className='h-12 md:hidden' />
+                        <img src="/newLogo.png" alt="" className='hidden md:block h-12' />
                     </Link>
                 </div>
 
