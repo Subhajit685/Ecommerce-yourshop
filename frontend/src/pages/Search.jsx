@@ -127,7 +127,7 @@ function Search() {
                     lastPageText="Last"
                     itemClass="inline-block mx-0.5 md:mx-1 px-2 md:px-3 py-1 text-sm md:text-base text-gray-700 bg-white border rounded hover:bg-orange-400"
                     linkClass="text-decoration-none"
-                    activeClass='bg-orange-500 text-white'
+                    activeClass='bg-orange-500 text-black'
                     activeLinkClass='activeLinkClass'
                 />
             </div>

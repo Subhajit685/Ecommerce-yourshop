@@ -57,7 +57,7 @@ function Navbar() {
                 navigate(`/search/${search}`)
             }
         })
-    })
+    },[])
 
     return (
         <header className='w-full h-16 shadow-md bg-white fixed top-0 z-50'>
